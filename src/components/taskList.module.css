@@ -1,0 +1,18 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    gap: 20px;
+  }
+
+.taskButton {
+  opacity: 0;
+  visibility: hidden;
+
+}
+
+.taskCard:hover .taskButton {
+  visibility: visible;
+  opacity: 1;
+  transition: 1s;
+}

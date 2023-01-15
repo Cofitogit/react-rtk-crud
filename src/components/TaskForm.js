@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTask } from '../features/tasks/taskSlice';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTask, editTask } from '../features/tasks/taskSlice';
 import { v4 as uuid } from 'uuid';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export function TaskForm() {
   const [task, setTask] = useState({
@@ -12,6 +12,8 @@ export function TaskForm() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const params = useParams();
+  const tasks = useSelector((state) => state.tasks);
 
   const handleChange = (e) => {
     setTask({
@@ -22,31 +24,49 @@ export function TaskForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(
-      addTask({
-        ...task,
-        id: uuid(),
-      })
-    );
+    if (params.id) {
+      dispatch(editTask(task));
+    } else {
+      dispatch(
+        addTask({
+          ...task,
+          id: uuid(),
+        })
+      );
+    }
     navigate('/');
   };
 
+  useEffect(() => {
+    if (params.id) {
+      setTask(tasks.find((task) => task.id === params.id));
+    }
+  }, [params.id, tasks]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        name='title'
-        type='text'
-        placeholder='title'
-        onChange={handleChange}
-      />
+    <form onSubmit={handleSubmit} className='container justify-content-center d-flex'>
+      <div className='d-grid gap-1 p-4 col-4'>
+        <h1 className='text-center'>Task details</h1>
+        <label htmlFor="title">Title:</label>
+        <input
+          className='rounded text-sm font-bold'
+          name='title'
+          type='text'
+          placeholder='title'
+          onChange={handleChange}
+          value={task.title}
+        />
+        <label htmlFor="description">Description:</label>
+        <textarea
+          className='rounded block'
+          name='description'
+          placeholder='description'
+          onChange={handleChange}
+          value={task.description}
+        ></textarea>
 
-      <textarea
-        name='description'
-        placeholder='description'
-        onChange={handleChange}
-      ></textarea>
-
-      <button>Save</button>
+        <button className='btn btn-success mt-3'>Save</button>
+      </div>
     </form>
   );
 }
