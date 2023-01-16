@@ -45,7 +45,7 @@ export function TaskForm() {
 
   return (
     <form onSubmit={handleSubmit} className='d-grid p-4 justify-content-center'>
-      <div className='d-grid bg-black bg-gradient p-2 rounded'>
+      <div className='d-grid bg-black bg-gradient p-2 rounded' style={{width: "300px"}}>
         <h1 className='text-center'>Task details</h1>
         <label htmlFor='title'>Title:</label>
         <input
@@ -59,6 +59,7 @@ export function TaskForm() {
         <label htmlFor='description'>Description:</label>
         <textarea
           className='rounded'
+          style={{height: "150px"}}
           name='description'
           placeholder='description'
           onChange={handleChange}

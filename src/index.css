@@ -29,8 +29,8 @@ body {
         transparent 80%,
         transparent
       )
-      22.5px 22.5px,
+      45.5px 45.5px,
     linear-gradient(#646464 1.8px, transparent 1.8px) 0 -0.9px,
     linear-gradient(90deg, #646464 1.8px, #000000 1.8px) -0.9px 0;
-  background-size: 45px 45px, 45px 45px, 22.5px 22.5px, 22.5px 22.5px;
+  background-size: 45px 45px, 45px 45px, 22.5px 112.5px, 22.5px 22.5px;
 }
