@@ -44,10 +44,10 @@ export function TaskForm() {
   }, [params.id, tasks]);
 
   return (
-    <form onSubmit={handleSubmit} className='container justify-content-center d-flex'>
-      <div className='d-grid gap-1 p-4 col-4'>
+    <form onSubmit={handleSubmit} className='d-grid p-4 justify-content-center'>
+      <div className='d-grid bg-black bg-gradient p-2 rounded'>
         <h1 className='text-center'>Task details</h1>
-        <label htmlFor="title">Title:</label>
+        <label htmlFor='title'>Title:</label>
         <input
           className='rounded text-sm font-bold'
           name='title'
@@ -56,16 +56,17 @@ export function TaskForm() {
           onChange={handleChange}
           value={task.title}
         />
-        <label htmlFor="description">Description:</label>
+        <label htmlFor='description'>Description:</label>
         <textarea
-          className='rounded block'
+          className='rounded'
           name='description'
           placeholder='description'
           onChange={handleChange}
           value={task.description}
         ></textarea>
-
-        <button className='btn btn-success mt-3'>Save</button>
+        <button className='btn btn-success mt-3'>
+          Save
+        </button>
       </div>
     </form>
   );

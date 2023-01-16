@@ -1,4 +1,4 @@
-body {
+/* body {
   background: rgb(2, 0, 36);
   background: linear-gradient(
     180deg,
@@ -8,4 +8,29 @@ body {
   );
   background-repeat: no-repeat;
   background-attachment: fixed;
+} */
+
+body {
+  background-color: #000000;
+  opacity: 1;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      #000000 20%,
+      #000000 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        #000000 20%,
+        #000000 80%,
+        transparent 80%,
+        transparent
+      )
+      22.5px 22.5px,
+    linear-gradient(#646464 1.8px, transparent 1.8px) 0 -0.9px,
+    linear-gradient(90deg, #646464 1.8px, #000000 1.8px) -0.9px 0;
+  background-size: 45px 45px, 45px 45px, 22.5px 22.5px, 22.5px 22.5px;
 }

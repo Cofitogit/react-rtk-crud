@@ -14,13 +14,15 @@ export function TasksList() {
   return (
     <div className='p-4'>
       <header className='d-flex justify-content-between border-bottom border-white mb-3'>
-        <h2 className='text-success fw-light'>Tasks APP</h2>
+        <h2 className='text-white fw-light bg-success rounded p-1'>
+          Tasks APP
+        </h2>
         <Link
           type='button'
-          className='btn btn-success btn-sm rounded mb-3'
+          className='bg-success px-3 text-decoration-none text-white fs-3 rounded mb-2'
           to='/create-task'
         >
-          New task
+          +
         </Link>
       </header>
       <div className={styles.grid}>
@@ -28,12 +30,14 @@ export function TasksList() {
           <div className={styles.taskCard}>
             <div
               key={task.id}
-              className='card text-bg-light mb-3 rounded p-2'
+              className='bg-black mb-3 rounded p-2 h-100 d-grid align-content-between'
             >
-              <h3 className='card-title text-center border-bottom border-secondary'>
+              <h4 className='card-title text-uppercase text-center text-success border-bottom border-secondary pb-1 fw-bolder fs-6'>
                 {task.title}
-              </h3>
-              <p className='card-text'>{task.description}</p>
+              </h4>
+              <p className='card-text text-center fw-normal text-break'>
+                {task.description}
+              </p>
               <div className={styles.taskButton}>
                 <div className='d-flex justify-content-end'>
                   <Link
@@ -45,8 +49,9 @@ export function TasksList() {
                   <button
                     className='btn btn-danger btn-sm'
                     onClick={() => handleDelete(task.id)}
-                  >X</button>
-                  
+                  >
+                    X
+                  </button>
                 </div>
               </div>
             </div>

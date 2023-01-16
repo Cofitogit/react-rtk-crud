@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 function App() {
   return (
     <div className='p-4'>
-      <div className='text-white rounded border'>
+      <div className='text-white rounded border bg-secondary' style={{"--bs-bg-opacity": ".3"}}>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<TasksList />} />
